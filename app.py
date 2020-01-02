@@ -12,6 +12,9 @@ def output():
     fontsize = str(namequery1) + "px"
     print(fontsize)
     color = str(namequery2)
+    if len(color) > 100:
+        return render_template('index.html',
+                               other_message="* Sorry! You must input a sequence of characters less than 100! *")
     print(color)
     return render_template('index.html', output = 'Random text!', fontstyle=fontsize, fontcolor=color, message="* Not seeing the correct color? Make sure you have inputted an existant color. *")
 @app.route('/about')
