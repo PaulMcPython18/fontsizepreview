@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Preview HTML Font Sizes & Colors before adding them to your HTML Website. We provide the users with the tools to preview font sizes and colors before adding them to their HTML Websites.">
+<!--    <link rel="canonical", href=""> -->
+    <title>Font Size And Color Preview HTML - Preview Font Sizes and Colors before adding them into your HTML website</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #232323;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #cccccc;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="text-center" style="background-color: #333334; color: white;">
+{% include '_navbar.html' %}
+<center>
+
+<div style="width: 50%; margin-top: 2em;">
+<h2 style="font-size: 25px;">&darr; Font Size Preview &darr;</h2>
+<p style="margin-top: 2em;">Input a font-size and color to preview your text. Use slider below to select font size.</p>
+<form method='POST' action="/">
+<div class="slidecontainer" style="width: 70%; margin-top: 2em;">
+  <input type="range" min="5" max="40" value="25" class="slider" id="myRange" name="namequery1">
+  <p style="font-size: 15px;">Font-Size in Pixels: <b><span id="demo"></span></b></p>
+</div>
+<hr style="margin-top: 2em;">
+    <p> Input the color you wish your font to be. (Ex: (255, 255, 255), #cccccc, pink)</p>
+    <input style="height: 50%; width: 30%;" name="namequery2">
+    <p style="margin-bottom: -1em; margin-top: 0.5em;"> Click Below to Preview: &darr;</p>
+    <br>
+    <button type="submit" class="btn btn-lg btn-secondary" style="margin-top: 1em; height: 50%; width: 30%; background-color: #29a329;"> Preview Text | Submit</button>
+<hr>
+</form>
+    <p class="lead" style="margin-top: 1em;"> &darr; White Background - &darr; Font Size Preview: &darr; - Black Background &darr;</p>
+    <div class="row" style="margin-left: 20%;">
+    <table>
+        <td>
+    <tr><div class="card" style="width: 40%; height: 12.5rem;">
+<p style="font-size:{{ fontstyle }}; color:{{ fontcolor }}"> {{ output }} </p></tr>
+            <tr><div class="card" style="width: 40%; height: 12.5rem; background-color: black;">
+<p style="font-size:{{ fontstyle }}; color:{{ fontcolor }}"> {{ output }} </p></tr>
+        </td>
+        </table>
+        <center>
+        </center>
+        </div>
+</div>
+    </div>
+
+      <center><footer style="margin-top: 2em; ">
+                  <p style="color: red; margin-top: 0.8em;">{{ message }}</p>
+<hr>
+        <div class="inner">
+            <p><b><i>HTML Preview Font Size & Color</i></b></p>
+        </div>
+      </footer></center>
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+</script>
+
+    </center>
+</body>
+</html>
